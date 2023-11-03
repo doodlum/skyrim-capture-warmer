@@ -158,7 +158,7 @@ struct Hooks
 		stl::write_vfunc<0x2, BSImagespaceShaderISSAOCompositeSAOFog_SetupTechnique>(RE::VTABLE_BSImagespaceShaderISSAOCompositeSAOFog[0]);
 		
 		logger::info("Hooking camera updates");
-		stl::write_thunk_call<TESCamera_Update>(REL::RelocationID(49852, 50784).address() + REL::Relocate(0x1A6, 0x1A6));
+		stl::write_thunk_call<TESCamera_Update>(REL::RelocationID(49852, 50784).address() + REL::Relocate(0x1A6, 0x1A6, 0x1B6));
 	}
 };
 
