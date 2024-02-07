@@ -21,7 +21,7 @@ void DrawDeferred()
 	if (resetCapture){
 		resetCapture = false;
 		rotateCamera = true;
-		FadeOutGame(false, true, 0.5f, true, 0.5f);
+		FadeOutGame(false, true, 1.0f, true, 1.0f);
 	}
 }
 
