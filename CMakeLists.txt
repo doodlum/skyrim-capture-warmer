@@ -8,9 +8,3 @@ project(
 
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
 include(XSEPlugin)
-
-target_link_libraries(
-	${PROJECT_NAME} 
-	PRIVATE 
-		d3dcompiler.lib
-)
