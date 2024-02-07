@@ -1,5 +1,17 @@
 #include <numbers>
 
+void FadeOutGame(
+	bool a_fadingOut,
+	bool a_blackFade,
+	float a_fadeDuration,
+	bool a_arg4,
+	float a_secsBeforeFade)
+{
+	using func_t = decltype(&FadeOutGame);
+	REL::Relocation<func_t> func{ REL::RelocationID(51909, 52847)};
+	return func(a_fadingOut, a_blackFade, a_fadeDuration, a_arg4, a_secsBeforeFade);
+}
+
 bool resetCapture = false;
 bool rotateCamera = false;
 int captureStep = 1;
@@ -9,6 +21,7 @@ void DrawDeferred()
 	if (resetCapture){
 		resetCapture = false;
 		rotateCamera = true;
+		FadeOutGame(false, true, 0.5f, true, 0.5f);
 	}
 }
 
