@@ -5,23 +5,27 @@ void FadeOutGame(
 	bool a_blackFade,
 	float a_fadeDuration,
 	bool a_arg4,
-	float a_secsBeforeFade)
+	float a_secsBeforeFade,
+	void* a_arg6,
+	void* a_arg7)
 {
 	using func_t = decltype(&FadeOutGame);
-	REL::Relocation<func_t> func{ REL::RelocationID(51909, 52847)};
-	return func(a_fadingOut, a_blackFade, a_fadeDuration, a_arg4, a_secsBeforeFade);
+	REL::Relocation<func_t> func{ REL::RelocationID(51909, 52847) };
+	return func(a_fadingOut, a_blackFade, a_fadeDuration, a_arg4, a_secsBeforeFade, a_arg6, a_arg7);
 }
 
 bool resetCapture = false;
 bool rotateCamera = false;
+bool isVR = REL::Module::IsVR();  // cache the result. This would break in VR when done directly
 int captureStep = 1;
 
 void DrawDeferred()
 {
-	if (resetCapture){
+	if (resetCapture) {
 		resetCapture = false;
 		rotateCamera = true;
-		FadeOutGame(false, true, 1.0f, true, 1.0f);
+		// VR inverts the fadeOut logic. For Flat it's false for a_fadingOut. Also provide extra args for VR
+		FadeOutGame(isVR, true, 1.0f, true, 1.0f, 0, nullptr);
 	}
 }
 
